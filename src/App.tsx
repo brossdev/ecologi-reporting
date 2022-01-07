@@ -1,8 +1,23 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+import { getAllTrees, TreeData } from './api/trees';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const { isLoading, isError, data, error } = useQuery<TreeData, Error>(
+    'trees',
+    getAllTrees,
+  );
+
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error?.message}</span>;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +31,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {data && `Tree data is ${data.length} items long`}
         </a>
       </header>
     </div>
