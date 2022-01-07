@@ -27,7 +27,8 @@
     "eject": "react-scripts eject",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css)\"",
     "format": "yarn run prettier --write",
-    "lint": "yarn run eslint src/**/*.tsx --ignore-pattern /node_modules/"
+    "lint": "yarn run eslint src/**/*.tsx --ignore-pattern /node_modules/",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
