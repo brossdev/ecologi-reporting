@@ -1,5 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { BarChart } from './components/bar-chart';
+import { LineGraph } from './components/line-graph';
 import { getAllTrees, TreeData } from './api/trees';
 import logo from './logo.svg';
 import './App.css';
@@ -32,6 +34,8 @@ function App() {
           rel="noopener noreferrer"
         >
           {data && `Tree data is ${data.length} items long`}
+          {data && <BarChart />}
+          {data && <LineGraph />}
         </a>
       </header>
     </div>
