@@ -13,6 +13,12 @@ const mockAllTreeData: TreeResponse = {
   ],
 };
 
+const mockErrorResponse: TreeResponse = {
+  responseCode: 'ERROR',
+  responseText: 'uh oh',
+  data: [],
+};
+
 describe('getAllTrees', () => {
   it('should return tree data on success', async () => {
     // @ts-expect-error
@@ -22,5 +28,14 @@ describe('getAllTrees', () => {
 
     const trees = await getAllTrees();
     expect(trees).toMatchObject(mockAllTreeData.data);
+  });
+
+  it('should throw an error is response status is not ok', async () => {
+    // @ts-expect-error
+    window.fetch.mockResolvedValueOnce({
+      json: async () => mockErrorResponse,
+    });
+
+    await expect(getAllTrees()).rejects.toThrow('error placeholder');
   });
 });
