@@ -27,6 +27,6 @@ const expectedOutput: PlantedDate[] = [
 describe('formatTreeData', () => {
   it('should create an object for each date totalling the number of trees planted sorted by most recent date', () => {
     const plantedData = formatTreeData(mockRawData);
-    expect(plantedData).toEqual(expectedOutput);
+    expect(plantedData).toStrictEqual(expectedOutput);
   });
 });
