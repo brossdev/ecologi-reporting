@@ -8,6 +8,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { groupPlantedByWeekDay } from '../utils/tree-helper';
+import type { PlantedDate } from '../utils/tree-helper';
 
 ChartJS.register(
   CategoryScale,
@@ -26,34 +28,23 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Trees Planted per day of the week',
+      text: 'Trees planted per day of the week',
     },
   },
 };
 
-const labels = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-];
+export const BarChart = ({ plantedData }: { plantedData: PlantedDate[] }) => {
+  const weekdayData = groupPlantedByWeekDay(plantedData);
+  const data = {
+    labels: weekdayData.map((dataPoint) => dataPoint.label),
+    datasets: [
+      {
+        label: 'Weekday',
+        data: weekdayData.map((dataPoint) => dataPoint.totalPlanted),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  };
 
-const dummyData = [{ totalPlanted: 4000, weekday: 'Monday' }];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Weekday',
-      data: dummyData.map((dataPoint) => dataPoint.totalPlanted),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-  ],
-};
-
-export const BarChart = () => {
   return <Bar options={options} data={data} />;
 };

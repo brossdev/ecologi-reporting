@@ -29,20 +29,10 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Ecologi Trees Planted per week day',
+      text: 'Ecologi Trees Planted per day',
     },
   },
 };
-
-const labels = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-];
 
 export const LineGraph = ({ plantedData }: { plantedData: PlantedDate[] }) => {
   const data = {

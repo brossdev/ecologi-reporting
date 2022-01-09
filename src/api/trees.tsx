@@ -16,7 +16,6 @@ export const getAllTrees = async () => {
     if (treeRes.responseCode != 'OK' || treeRes.responseText != 'Success') {
       throw new Error('Error with data');
     }
-
     return treeRes.data;
   } catch (err) {
     console.log({ err });
