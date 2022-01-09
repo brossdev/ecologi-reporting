@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import { BarChart } from '../components/BarChart';
 import { LineGraph } from '../components/LineGraph';
 import DatePicker from 'react-date-picker';
-import { getAllTrees, TreeData } from '../api/trees';
+import { getAllTrees } from '../api/trees';
 import { formatTreeData } from '../utils/tree-helper';
 
 function Reporting() {

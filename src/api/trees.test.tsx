@@ -1,4 +1,4 @@
-import { getAllTrees, TreeResponse } from './trees';
+import { getAllTrees } from './trees';
 
 beforeAll(() => jest.spyOn(window, 'fetch'));
 

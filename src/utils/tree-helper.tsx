@@ -1,18 +1,4 @@
-import type { TreeData } from '../api/trees';
 import { dayOfTheWeekAsString } from './helpers';
-
-export type PlantedDate = {
-  weekday: string;
-  weekDayIndex: number;
-  dateKey: string;
-  totalPlanted: number;
-};
-
-export type PlantedWeekday = {
-  weekDayIndex: number;
-  label: string;
-  totalPlanted: number;
-};
 
 export const formatTreeData = (rawData: TreeData) => {
   const formattedData = rawData

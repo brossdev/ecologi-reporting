@@ -9,7 +9,6 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { groupPlantedByWeekDay } from '../utils/tree-helper';
-import type { PlantedDate } from '../utils/tree-helper';
 
 ChartJS.register(
   CategoryScale,

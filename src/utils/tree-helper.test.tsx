@@ -1,10 +1,4 @@
-import {
-  formatTreeData,
-  PlantedDate,
-  PlantedWeekday,
-  groupPlantedByWeekDay,
-} from './tree-helper';
-import type { TreeData } from '../api/trees';
+import { formatTreeData, groupPlantedByWeekDay } from './tree-helper';
 
 const mockRawData: TreeData = [
   [14, 1640945321], // friday 31/12/2021 ( weekday index 5 )
