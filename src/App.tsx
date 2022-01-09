@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Header from './components/Header';
 import { BarChart } from './components/bar-chart';
 import { LineGraph } from './components/line-graph';
 import DatePicker from 'react-date-picker';
@@ -17,14 +18,6 @@ function App() {
     getAllTrees,
   );
 
-  if (isLoading) {
-    return <span>Loading...</span>;
-  }
-
-  if (isError) {
-    return <span>Error: {error?.message}</span>;
-  }
-
   const filteredDates = data?.filter(
     (date) =>
       date[1] * 1000 >= startDate.getTime() &&
@@ -34,6 +27,10 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+      {isLoading && <span>Loading...</span>}
+
+      {isError && <span>Error: {error?.message}</span>}
       <DatePicker
         calendarAriaLabel="Toggle calendar"
         clearAriaLabel="Clear value"
