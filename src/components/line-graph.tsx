@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { PlantedDate } from '../utils/tree-helper';
 
 ChartJS.register(
   CategoryScale,
@@ -43,20 +44,17 @@ const labels = [
   'Sunday',
 ];
 
-const dummyData = [{ totalPlanted: 4000, weekday: 'Monday' }];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Trees',
-      data: dummyData.map((dataPoint) => dataPoint.totalPlanted),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-  ],
-};
-
-export const LineGraph = () => {
+export const LineGraph = ({ plantedData }: { plantedData: PlantedDate[] }) => {
+  const data = {
+    labels: plantedData.map((dataPoint) => dataPoint.dateKey),
+    datasets: [
+      {
+        label: 'dateKey',
+        data: plantedData.map((dataPoint) => dataPoint.totalPlanted),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  };
   return <Line options={options} data={data} />;
 };
 
