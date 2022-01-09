@@ -10,9 +10,7 @@ I took the decision to only format the data after filtering ( last month by defa
 
 # running locally
 
-yarn install to install dependencies 
-
-yarn start to start the app
+from the root directory:
 
 ```bash
 
@@ -24,15 +22,19 @@ yarn start
 
 ## Tests
 
-Tests are written using jest, run yarn test to run all tests in the repository
+Tests are written using jest, from the root directory:
+
+```bash
+yarn test
+```
 
 ## Git Hooks
 
 This project uses git hooks to keep code quality consistent. 
 
-Pre commit - on commit the pre commit hook will run Eslint and prettier configs across staged files, for simple fixes it will auto correct , for errors it will force a fix to be in place before commuting
+**Pre Commit** - on commit the pre commit hook will run Eslint and prettier configs across staged files, for simple fixes it will auto correct , for errors it will force a fix to be in place before commuting
 
-Pre push - runs a test script across the repository to make sure all tests still pass before allowing a push to remote. 
+**Pre Push** - runs a test script across the repository to make sure all tests still pass before allowing a push to remote. 
 
 ## Improvements 
 
@@ -43,10 +45,10 @@ With a large dataset I would propose building a GraphQL or REST api which would 
 
 ## Next Steps
 
-Error handling - the error handling at the moment is basic, the next step is to add an Error boundary and generic typescript error library for more consitant error handling.
+**Error handling** - the error handling at the moment is basic, the next step is to add an Error boundary and generic typescript error library for more consitant error handling.
 
-Api refactor - had I had more time I intended to build a a lambda to demonstrate the api changes I proposed above to test the performance difference when handling the same data set server side. 
+**Api refactor** - had I had more time I intended to build a a lambda to demonstrate the api changes I proposed above to test the performance difference when handling the same data set server side. 
 
-Styling - the styling is very simplistic and not scaleable
+**Styling** - the styling is very simplistic and not scaleable/responsive
 
 
