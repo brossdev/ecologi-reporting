@@ -29,7 +29,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Ecologi Trees Planted per day',
+      text: 'Ecologi Trees planted per date',
     },
   },
 };
