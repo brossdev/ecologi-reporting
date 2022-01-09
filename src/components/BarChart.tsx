@@ -41,7 +41,7 @@ export const BarChart = ({ plantedData }: { plantedData: PlantedDate[] }) => {
       {
         label: 'Weekday',
         data: weekdayData.map((dataPoint) => dataPoint.totalPlanted),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(95, 192, 135, 1)',
       },
     ],
   };

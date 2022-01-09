@@ -41,7 +41,7 @@ export const LineGraph = ({ plantedData }: { plantedData: PlantedDate[] }) => {
       {
         label: 'dateKey',
         data: plantedData.map((dataPoint) => dataPoint.totalPlanted),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(41, 95, 73, 1)',
       },
     ],
   };

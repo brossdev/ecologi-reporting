@@ -1,8 +1,9 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Header from './components/Header';
-import { BarChart } from './components/bar-chart';
-import { LineGraph } from './components/line-graph';
+import Layout from './components/Layout';
+import { BarChart } from './components/BarChart';
+import { LineGraph } from './components/LineGraph';
 import DatePicker from 'react-date-picker';
 import { getAllTrees, TreeData } from './api/trees';
 import { formatTreeData } from './utils/tree-helper';
@@ -26,34 +27,46 @@ function App() {
   const formattedData = filteredDates ? formatTreeData(filteredDates) : null;
 
   return (
-    <div className="App">
+    <Layout>
       <Header />
-      {isLoading && <span>Loading...</span>}
-
-      {isError && <span>Error: {error?.message}</span>}
-      <DatePicker
-        calendarAriaLabel="Toggle calendar"
-        clearAriaLabel="Clear value"
-        dayAriaLabel="Day"
-        monthAriaLabel="Month"
-        nativeInputAriaLabel="Date"
-        onChange={setStartDate}
-        value={startDate}
-        yearAriaLabel="Year"
-      />
-      <DatePicker
-        calendarAriaLabel="set end date"
-        clearAriaLabel="Clear value"
-        dayAriaLabel="Day"
-        monthAriaLabel="Month"
-        nativeInputAriaLabel="Date"
-        onChange={setEndDate}
-        value={endDate}
-        yearAriaLabel="Year"
-      />
-      {formattedData && <LineGraph plantedData={formattedData} />}
-      {formattedData && <BarChart plantedData={formattedData} />}
-    </div>
+      <section className="content">
+        {isLoading && <span>Loading...</span>}
+        {isError && <span>Error: {error?.message}</span>}
+        {formattedData && (
+          <section>
+            <div className="datepicker">
+              <span>select date range</span>
+              <DatePicker
+                calendarAriaLabel="Toggle calendar"
+                clearAriaLabel="Clear value"
+                dayAriaLabel="Day"
+                monthAriaLabel="Month"
+                nativeInputAriaLabel="Date"
+                onChange={setStartDate}
+                value={startDate}
+                yearAriaLabel="Year"
+              />
+              <DatePicker
+                calendarAriaLabel="set end date"
+                clearAriaLabel="Clear value"
+                dayAriaLabel="Day"
+                monthAriaLabel="Month"
+                nativeInputAriaLabel="Date"
+                onChange={setEndDate}
+                value={endDate}
+                yearAriaLabel="Year"
+              />
+              <div className="box">
+                <LineGraph plantedData={formattedData} />
+              </div>
+              <div className="box">
+                <BarChart plantedData={formattedData} />
+              </div>
+            </div>
+          </section>
+        )}
+      </section>
+    </Layout>
   );
 }
 
